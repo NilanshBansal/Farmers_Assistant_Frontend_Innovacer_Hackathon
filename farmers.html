@@ -27,11 +27,15 @@
 
         <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
         <div class="ui large buttons">
-                <button class="ui button active" id="speak_btn" onclick="show_speak_div()">ASK Question/प्रश्न पूछो         <i class="fa fa-2x fa-volume-up"></i></button>
-                <div class="or"></div>
-                <button class="ui button" id="type_btn" onclick="show_type_div()">Type Question/प्रश्न लिखो     <i class="fa fa-2x fa-pencil"></i></button>
+            <button class="ui button active" id="speak_btn" onclick="show_speak_div()">ASK Question/प्रश्न पूछो
+                <i class="fa fa-2x fa-volume-up"></i>
+            </button>
+            <div class="or"></div>
+            <button class="ui button" id="type_btn" onclick="show_type_div()">Type Question/प्रश्न लिखो
+                <i class="fa fa-2x fa-pencil"></i>
+            </button>
         </div>
-        
+
         <!-- <div class="app">
 
             <h3>Add New Note</h3>
@@ -55,25 +59,55 @@
         <audio id="recordedAudio"></audio>
     </div> -->
 
-    <div class="app">
+        <div class="app">
             <div id="type" style="display: none">
-                    <h3>Add New Note</h3>
-                    <div class="input-single">
-                        <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
-                        <button class="btn btn-primary" id="save-note-btn" title="Save Note">send node</button>
-                    </div>
+                <h3>Add New Note</h3>
+                <div class="input-single">
+                    <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
+                    <button class="btn btn-primary" id="save-note-btn" title="Save Note">send node</button>
+                </div>
             </div>
             <div id="speak">
+                <div>
+                    <select>
+                        <option value="en-IN" data-language="ENGLISH" selected="selected">
+                            English
+                        </option>
+                        <option value="hi-IN" data-language="HINDI">
+                            हिन्दी (Hindi)
+                        </option>
+                        <option value="mr-IN" data-language="MARATHI">
+                            मराठी (Marathi)
+                        </option>
+                        <option value="gu-IN" data-language="GUJRATI">
+                            ગુજરાતી (Gujrati)
+                        </option>
+                        <option value="ta-IN" data-language="TAMIL">
+                            தமிழ் (Tamil)
+                        </option>
+                        <option value="kn-IN" data-language="KANNADA">
+                            ಕನ್ನಡ (Kannada)
+                        </option>
+                        <option value="te-IN" data-language="TELUGU">
+                            తెలుగు (Telugu)
+                        </option>
+                        <option value="bn-IN" data-language="BENGALI">
+                            বাংলা (Bengali)
+                        </option>
+                    </select>
+                </div>
+
+                <br/><br/>
                 <button class="btn btn-primary" id="start-record-btn" title="Start Recording">Start recording</button>
                 <button class="btn btn-primary" id="pause-record-btn" title="Pause Recording">Pause Recording</button>
                 <p id="recording-instructions">Press the
-                <strong>Start Recording</strong> button and allow access.</p>
+                    <strong>Start Recording</strong> button and allow access.</p>
                 <audio id="recordedAudio"></audio>
-            
+
             </div>
-            
-            
-            
+
+
+
             <h3>Response</h3>
             <ul id="response">
                 <li>
@@ -82,7 +116,7 @@
             </ul>
 
         </div>
-        
+
     </div>
 
 
