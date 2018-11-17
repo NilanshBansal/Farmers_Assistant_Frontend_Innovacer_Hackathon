@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
@@ -24,8 +26,14 @@
 
 
         <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+        <div class="ui large buttons">
+                <button class="ui button active" id="speak_btn" onclick="show_speak_div()">ASK Question/प्रश्न पूछो         <i class="fa fa-2x fa-volume-up"></i></button>
+                <div class="or"></div>
+                <button class="ui button" id="type_btn" onclick="show_type_div()">Type Question/प्रश्न लिखो     <i class="fa fa-2x fa-pencil"></i></button>
+        </div>
+        
+        <!-- <div class="app">
 
-        <div class="app">
             <h3>Add New Note</h3>
             <div class="input-single">
                 <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
@@ -45,7 +53,40 @@
 
         </div>
         <audio id="recordedAudio"></audio>
+    </div> -->
+
+    <div class="app">
+            <div id="type" style="display: none">
+                    <h3>Add New Note</h3>
+                    <div class="input-single">
+                        <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
+                        <button class="btn btn-primary" id="save-note-btn" title="Save Note">send node</button>
+                    </div>
+            </div>
+            <div id="speak">
+                <button class="btn btn-primary" id="start-record-btn" title="Start Recording">Start recording</button>
+                <button class="btn btn-primary" id="pause-record-btn" title="Pause Recording">Pause Recording</button>
+                <p id="recording-instructions">Press the
+                <strong>Start Recording</strong> button and allow access.</p>
+                <audio id="recordedAudio"></audio>
+            
+            </div>
+            
+            
+            
+            <h3>Response</h3>
+            <ul id="response">
+                <li>
+                    <p class="no-notes">You don't have any query.</p>
+                </li>
+            </ul>
+
+        </div>
+        
     </div>
+
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- <script src="script.js"></script> -->
@@ -59,52 +100,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
-        // $(document).ready(function () {
 
-        //     $('form').on('submit', function (event) {
-        //         $.ajax({
-        //             data: {
-        //                 TextToAnalyse: $('#TextToAnalyse').val(),
-        //             },
-        //             type: 'POST',
-        //             url: '/getnlpscore',
-        //             success: function (result) {
-        //                 console.log(result);
-        //             },
-        //             error: function (err) {
-        //                 console.log(err.statusText);
-        //             }
-        //         })
-        //             .done(function (data) {
-        //                 if (data.error) {
-        //                     // console.log("error: ", data.error);
-        //                     // $('#errorAlert').text(data.error).show();
-        //                     // $('#successAlert').hide();
-        //                 }
-        //                 else {
-
-        //                     // console.log("success: ", data.name);
-        //                     let html_response = '<h3>RESPONSE</h3><p>Sentiment : ' + data.sentiment + '<br/>Confidence : ' + data.confidence + '<br/>Text : ' + data.text + '</p>';
-        //                     $('#result_sentiment').html(html_response);
-        //                     $('#result_sentiment').css("display", "block");
-        //                     // $('#successAlert').text(JSON.stringify(data)).show();
-        //                     // $('#errorAlert').hide();
-        //                 }
-
-        //             });
-
-        //         event.preventDefault();
-
-        //     });
-
-        // });
-
-
-        
-        navigator.mediaDevices.getUserMedia({ audio: true,video:false })
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false })
             .then(stream => {
                 const mime = ['audio/wav', 'audio/mpeg', 'audio/webm', 'audio/ogg']
-                .filter(MediaRecorder.isTypeSupported)[0];
+                    .filter(MediaRecorder.isTypeSupported)[0];
                 const mediaRecorder = new MediaRecorder(stream, {
                     mimeType: mime
                 });
@@ -142,7 +142,7 @@
                     $.ajax({
                         // url: "https://d0c97f7c.ngrok.io/post/",
                         // url: "http://127.0.0.1:8000/speechtotext/",   
-                        url: "http://127.0.0.1:8000/post/",                        
+                        url: "http://127.0.0.1:8000/post/",
 
                         type: "POST",
                         data: data,
@@ -154,7 +154,7 @@
                         error: function (err) {
                             console.log(err);
                         }
-                    }) .done(function (data) {
+                    }).done(function (data) {
                         if (data.error) {
                             // console.log("error: ", data.error);
                             // $('#errorAlert').text(data.error).show();
@@ -167,7 +167,7 @@
                             // $('#result_sentiment').html(html_response);
                             // $('#result_sentiment').css("display", "block");
 
-                            
+
                             // $('#successAlert').text(JSON.stringify(data)).show();
                             // $('#errorAlert').hide();
                         }
@@ -176,14 +176,31 @@
                 }
             });
     </script>
-   <script>
-    $("#save-note-btn").click(function () {
+    <script>
+        $("#save-note-btn").click(function () {
             var text = $("#note-textarea").val();
             $.post('http://127.0.0.1:5000/ind', { 'text': text }, function (data, status) {
                 console.log(status)
                 console.log(data)
             });
         });
+    </script>
+    <script>
+        function show_type_div() {
+            var type_div = document.getElementById("type");
+            var speak_div = document.getElementById("speak");
+            var speak_btn = document.getElementById("speak_btn");
+            speak_div.style.display = "none";
+            type_div.style.display = "block";
+            speak_btn.classList.remove("active");
+        }
+        function show_speak_div() {
+            var speak_div = document.getElementById("speak");
+            var type_div = document.getElementById("type");
+            type_div.style.display = "none";
+            speak_div.style.display = "block";
+            // type_btn
+        } 
     </script>
 </body>
 
