@@ -28,7 +28,7 @@
         <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
         <div class="ui large buttons">
             <button class="ui button active" id="speak_btn" onclick="show_speak_div()">ASK Question/प्रश्न पूछो
-                <i class="fa fa-2x fa-volume-up"></i>
+                &nbsp;<i class="fa fa-2x fa-volume-up"></i>
             </button>
             <div class="or"></div>
             <button class="ui button" id="type_btn" onclick="show_type_div()">Type Question/प्रश्न लिखो
@@ -63,8 +63,12 @@
             <div id="type" style="display: none">
                 <h3>Add New Note</h3>
                 <div class="input-single">
-                    <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
-                    <button class="btn btn-primary" id="save-note-btn" title="Save Note">send node</button>
+                    <form class="ui form">
+                    <textarea  id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"/></textarea>
+                </form>
+                    <br>
+                    <button class="btn btn-primary" id="save-note-btn" title="Save Note">Send&nbsp;<i class="fa fa-paper-plane" aria-hidden="true"></i> 
+                    </button>
                 </div>
             </div>
             <div id="speak">
