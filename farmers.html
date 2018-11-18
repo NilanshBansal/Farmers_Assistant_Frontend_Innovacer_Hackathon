@@ -65,7 +65,7 @@
                 <h3>Add New Note</h3>
                 <div class="input-single">
                     <form class="ui form">
-                        <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6" /></textarea>
+                        <textarea id="note-textarea" onclick="remove_text_response()" placeholder="Create a new note by typing or using voice recognition." rows="6" /></textarea>
                     </form>
                     <br>
                     <button class="btn btn-primary" id="save-note-btn" title="Save Note">Send&nbsp;
@@ -121,11 +121,11 @@
                     <p class="no-notes">You don't have any query.</p>
                 </li>
             </ul> -->
-
+            <h3>RESPONSE</h3>
             <div id="response_output">
-
+                
             </div>
-
+            
             
             <!-- <button onclick='responsiveVoice.speak();' type='button' value='🔊 Play' ></button> -->
             
@@ -167,14 +167,17 @@
                 let stop = document.getElementById("pause-record-btn")
                 let recorded = document.getElementById("recordedAudio")
                 let chunks = []
+                var response_output = document.getElementById("response_output");
                 start.addEventListener('click', (ev) => {
                     mediaRecorder.start();
                     console.log("start")
+                    response_output.style.display = "none";
                 });
                 stop.addEventListener('click', (ev) => {
                     mediaRecorder.stop();
                     console.log("stop")
                     console.log(mediaRecorder.state);
+                    // response_output.style.display = "none";
                 });
                 mediaRecorder.ondataavailable = function (ev) {
                     chunks.push(ev.data);
@@ -222,13 +225,22 @@
 
                             console.log("success: ", data);
                             
-                            let html_response = '<h3>RESPONSE</h3><p>TEXT : ' + data.text_response + '</p>';
+                            // let html_response = '<h3>RESPONSE</h3><p>TEXT : ' + data.text_response + '</p>';
+                            let html_response = data['text_response']
+
                             // $('#response_output').html(html_response);
                             // $('#response_output').css("display", "block");
+                            console.log(data.text_response)
                             var response_output = document.getElementById("response_output");
-                            response_output.innerHTML=html_response
-                            speak_response(data.text_response);
-                            console.log("TEXT RESPONSE: ",data.text_response)
+                            // response_output.innerHTML=html_response
+                            
+                            // response_output.innerText=data.text_response
+                            
+                            response_output.innerText=html_response
+                            response_output.style.display = "block";
+                            // speak_response(data.text_response);
+                            speak_response(html_response)
+                            // console.log("TEXT RESPONSE: ",data.text_response)
                             // $('#result_sentiment').html(html_response);
                             // $('#result_sentiment').css("display", "block");
 
@@ -243,6 +255,8 @@
     </script>
     <script>
         $("#save-note-btn").click(function () {
+            var response_output = document.getElementById("response_output");
+            response_output.style.display = "none";
             var text = $("#note-textarea").val();
             console.log(text);
             // $.post('http://127.0.0.1:8000/post/', { 'text_input': text,"content_type":"text" }, function (data, status) {
@@ -277,6 +291,12 @@
                 else {
 
                     console.log("success: ", data);
+                    let html_response = data['text_response']
+                    console.log(data.text_response)
+                    var response_output = document.getElementById("response_output");
+                    response_output.innerText=html_response
+                    response_output.style.display = "block";
+                    speak_response(html_response)
                     // let html_response = '<h3>RESPONSE</h3><p>Sentiment : ' + data.sentiment + '<br/>Confidence : ' + data.confidence + '<br/>Text : ' + data.text + '</p>';
                     // $('#response_output').html(html_response);
                     // $('#result_sentiment').css("display", "block");
@@ -292,6 +312,8 @@
     </script>
     <script>
         function show_type_div() {
+            var response_output = document.getElementById("response_output");
+            response_output.style.display = "none";
             var type_div = document.getElementById("type");
             var speak_div = document.getElementById("speak");
             var speak_btn = document.getElementById("speak_btn");
@@ -300,10 +322,12 @@
             speak_btn.classList.remove("active");
         }
         function show_speak_div() {
+            var response_output = document.getElementById("response_output");
+            response_output.style.display = "none";
             var speak_div = document.getElementById("speak");
             var type_div = document.getElementById("type");
             type_div.style.display = "none";
-            speak_div.style.display = "block";
+            speak_div.style.display = "block";           
             // type_btn
         } 
 
@@ -312,6 +336,12 @@
             console.log(speak_res);
             responsiveVoice.speak(speak_res,"UK English Female");
 
+        }
+
+        function remove_text_response(){
+            var response_output = document.getElementById("response_output");
+            response_output.style.display = "none";
+            
         }
     </script>
 </body>
