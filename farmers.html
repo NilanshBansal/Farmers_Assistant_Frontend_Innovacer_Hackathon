@@ -152,6 +152,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
+        var output_received = ""
         // var voicelist = responsiveVoice.getVoices();
         // console.log(voicelist)
         let languages_select = document.getElementById('languages_select')
@@ -227,7 +228,7 @@
                             
                             // let html_response = '<h3>RESPONSE</h3><p>TEXT : ' + data.text_response + '</p>';
                             let html_response = data['text_response']
-
+                            output_received = data['text_response']
                             // $('#response_output').html(html_response);
                             // $('#response_output').css("display", "block");
                             console.log(data.text_response)
@@ -236,7 +237,8 @@
                             
                             // response_output.innerText=data.text_response
                             
-                            response_output.innerText=html_response
+                            response_output.innerHTML = "<p>" +  html_response + "<button onclick='responsiveVoice.speak(output_received);' type='button' value='🔊 Play' >🔊 Play</button></p>"
+                            // response_output.innerText=html_response
                             response_output.style.display = "block";
                             // speak_response(data.text_response);
                             speak_response(html_response)
@@ -294,7 +296,10 @@
                     let html_response = data['text_response']
                     console.log(data.text_response)
                     var response_output = document.getElementById("response_output");
-                    response_output.innerText=html_response
+                    // response_output.innerText=html_response
+                    output_received = data['text_response']
+                    response_output.innerHTML = "<p>" +  html_response + "<button onclick='responsiveVoice.speak(output_received);' type='button' value='🔊 Play' >🔊 Play</button></p>"
+                    
                     response_output.style.display = "block";
                     speak_response(html_response)
                     // let html_response = '<h3>RESPONSE</h3><p>Sentiment : ' + data.sentiment + '<br/>Confidence : ' + data.confidence + '<br/>Text : ' + data.text + '</p>';
