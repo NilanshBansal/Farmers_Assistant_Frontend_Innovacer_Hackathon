@@ -67,7 +67,7 @@
         </div>
 
         <div class="app">
-            <div id="type" >
+            <div id="type">
                 <!-- <h3>Add New Note</h3>
                 <div class="input-single">
                     <form class="ui form">
@@ -79,66 +79,70 @@
                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </div> -->
-                <div id="page-wrap">
-                    <!-- <div class="block2"> -->
-                    <div class="row">
-                        <div class="col-xs-4"></div>
-                        <div class="col-xs-4">
-                            <select class="form-control" id="lang"></select>
-                            <div style="height: 50px;"></div>
-                        </div>
+                <!-- <div id="page-wrap"> -->
+                <!-- <div class="block2"> -->
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <select class="form-control" id="lang"></select>
+                        <div style="height: 50px;"></div>
                     </div>
-                    <!-- <h2></h2> -->
-                    <input id="multi" type="text" />
-                    <button class="btn btn-primary" id="save-note-btn" title="Save Note">Send&nbsp;
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                    <!-- </div> -->
-                    <!-- <br class="clear" /> -->
                 </div>
+                <!-- <h2></h2> -->
+                <input id="multi" type="text" />
+                <button class="btn btn-primary" id="save-note-btn" title="Save Note">Send&nbsp;
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                <!-- </div> -->
+                <!-- <br class="clear" /> -->
+                <!-- </div> -->
             </div>
             <div id="speak" style="display: none">
-                <div>
-                    <select name="languages_select" id="languages_select">
-                        <option value="en-IN" data-language="ENGLISH" selected="selected">
-                            English
-                        </option>
-                        <option value="hi-IN" data-language="HINDI">
-                            हिन्दी (Hindi)
-                        </option>
-                        <option value="mr-IN" data-language="MARATHI">
-                            मराठी (Marathi)
-                        </option>
-                        <option value="gu-IN" data-language="GUJRATI">
-                            ગુજરાતી (Gujrati)
-                        </option>
-                        <option value="ta-IN" data-language="TAMIL">
-                            தமிழ் (Tamil)
-                        </option>
-                        <option value="kn-IN" data-language="KANNADA">
-                            ಕನ್ನಡ (Kannada)
-                        </option>
-                        <option value="te-IN" data-language="TELUGU">
-                            తెలుగు (Telugu)
-                        </option>
-                        <option value="bn-IN" data-language="BENGALI">
-                            বাংলা (Bengali)
-                        </option>
-                    </select>
+                <div class="form-row" style="display: flex;align-items: center;justify-content: center">
+                    <div class="col-auto">
+                        <select name="languages_select" id="languages_select" class="custom-select mr-sm-2">
+                            <option value="en-IN" data-language="ENGLISH" selected="selected">
+                                English
+                            </option>
+                            <option value="hi-IN" data-language="HINDI">
+                                हिन्दी (Hindi)
+                            </option>
+                            <option value="mr-IN" data-language="MARATHI">
+                                मराठी (Marathi)
+                            </option>
+                            <option value="gu-IN" data-language="GUJRATI">
+                                ગુજરાતી (Gujrati)
+                            </option>
+                            <option value="ta-IN" data-language="TAMIL">
+                                தமிழ் (Tamil)
+                            </option>
+                            <option value="kn-IN" data-language="KANNADA">
+                                ಕನ್ನಡ (Kannada)
+                            </option>
+                            <option value="te-IN" data-language="TELUGU">
+                                తెలుగు (Telugu)
+                            </option>
+                            <option value="bn-IN" data-language="BENGALI">
+                                বাংলা (Bengali)
+                            </option>
+                        </select>
+                    </div>
+
                 </div>
-                
+
                 <br/>
                 <br/>
                 <button class="btn btn-primary" id="start-record-btn" title="Start Recording">Start recording</button>
                 <button class="btn btn-primary" id="pause-record-btn" title="Pause Recording">Pause Recording</button>
-                <p id="recording-instructions">Press the
-                    <strong>Start Recording</strong> button and allow access.</p>
+                <!-- <p id="recording-instructions">Press the
+                    <strong>Start Recording</strong> button and allow access.</p> -->
                 <audio id="recordedAudio"></audio>
 
             </div>
-
-            <h3>RESPONSE</h3>
-            <div id="response_output">
+            <br/>
+            <br/>
+            <h3 style="color:white">RESPONSE</h3>
+            <div id="response_output" style="background-color: white;color: black; min-height: 100px;border-radius: 25px;padding:20px;width: 500px;">
 
             </div>
 
@@ -223,7 +227,7 @@
                             console.log(data.text_response)
                             var response_output = document.getElementById("response_output");
 
-                            response_output.innerHTML = "<p>" + html_response + "<button onclick='responsiveVoice.speak(output_received);' type='button' value='🔊 Play' >🔊 Play</button></p>"
+                            response_output.innerHTML = "<p>" + html_response + "&nbsp;&nbsp;&nbsp;<button onclick='responsiveVoice.speak(output_received);' type='button' value='🔊 Play' >🔊  Play</button></p>"
                             response_output.style.display = "block";
                             speak_response(html_response)
 
@@ -270,7 +274,7 @@
                     console.log(data.text_response)
                     var response_output = document.getElementById("response_output");
                     output_received = data['text_response']
-                    response_output.innerHTML = "<p>" + html_response + "<button onclick='responsiveVoice.speak(output_received);' type='button' value='🔊 Play' >🔊 Play</button></p>"
+                    response_output.innerHTML = "<p>" + html_response + "&nbsp;&nbsp;&nbsp;<button onclick='responsiveVoice.speak(output_received);' type='button' value='🔊 Play' >🔊 Play</button></p>"
 
                     response_output.style.display = "block";
                     speak_response(html_response)
@@ -294,13 +298,12 @@
             speak_btn.classList.remove("active");
             type_btn.classList.add("active");
             var multilingual_keyboard = document.getElementsByClassName("ui-keyboard-has-focus")[0];
-            if (multilingual_keyboard != undefined){
+            if (multilingual_keyboard != undefined) {
                 multilingual_keyboard.style.display = "block";
-                console.log("KEYBOARD DISPLAYED !");
             }
-            else{
-                console.log("KEYBOARD HIDDEN BY USER!");
-            }
+            // else {
+            //     console.log("KEYBOARD HIDDEN BY USER!");
+            // }
         }
         function show_speak_div() {
             var response_output = document.getElementById("response_output");
@@ -314,13 +317,13 @@
             type_div.style.display = "none";
             speak_div.style.display = "block";
             var multilingual_keyboard = document.getElementsByClassName("ui-keyboard-has-focus")[0];
-            if (multilingual_keyboard != undefined){
+            if (multilingual_keyboard != undefined) {
                 multilingual_keyboard.style.display = "none";
-                console.log("HIDDEN KEYBOARD !");
+                // console.log("HIDDEN KEYBOARD !");
             }
-            else{
-                console.log("NOT PRESENT !");
-            }
+            // else {
+            //     console.log("NOT PRESENT !");
+            // }
         }
 
         function speak_response(speak_res) {
