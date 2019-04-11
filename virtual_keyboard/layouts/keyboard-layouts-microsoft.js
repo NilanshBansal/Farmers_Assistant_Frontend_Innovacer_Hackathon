@@ -15,7 +15,7 @@
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdinben.html
  */
 jQuery.keyboard.layouts['ms-Bengali'] = {
-	"name" : "ms-Bengali",
+	"name" : "বাঙালি (Bengali)",
 	"lang" : ["bn"],
 	"normal" : [
 		"1 2 3 4 5 6 7 8 9 0 - \u09c3 {bksp}",
@@ -54,7 +54,7 @@ jQuery.keyboard.layouts['ms-Bengali'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdinguj.html
  */
 jQuery.keyboard.layouts['ms-Gujarati'] = {
-	"name" : "ms-Gujarati",
+	"name" : "ગુજરતી (Gujarati)",
 	"lang" : ["gu"],
 	"normal" : [
 		"{empty} 1 2 3 4 5 6 7 8 9 0 - \u0ac3 {bksp}",
@@ -120,7 +120,7 @@ jQuery.keyboard.language.gu = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdinhin.html
  */
 jQuery.keyboard.layouts['ms-Hindi Traditional'] = {
-	"name" : "ms-Hindi Traditional",
+	"name" : "हिंदी (Hindi)",
 	"lang" : ["hi"],
 	"normal" : [
 		"{empty} 1 2 3 4 5 6 7 8 9 0 - \u0943 {bksp}",
@@ -157,7 +157,7 @@ jQuery.keyboard.layouts['ms-Hindi Traditional'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdinkan.html
  */
 jQuery.keyboard.layouts['ms-Kannada'] = {
-	"name" : "ms-Kannada",
+	"name" : "ಕನ್ನಡ್ (Kannada)",
 	"lang" : ["kn"],
 	"normal" : [
 		"\u0cca 1 2 3 4 5 6 7 8 9 0 - \u0cc3 {bksp}",
@@ -193,7 +193,7 @@ jQuery.keyboard.layouts['ms-Kannada'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdinmar.html
  */
 jQuery.keyboard.layouts['ms-Marathi'] = {
-	"name" : "ms-Marathi",
+	"name" : "मराठी	(Marathi)",
 	"lang" : ["mr"],
 	"normal" : [
 		"{empty} \u0967 \u0968 \u0969 \u096a \u096b \u096c \u096d \u096e \u096f \u0966 - \u0943 {bksp}",
@@ -230,7 +230,7 @@ jQuery.keyboard.layouts['ms-Marathi'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdinpun.html
  */
 jQuery.keyboard.layouts['ms-Punjabi'] = {
-	"name" : "ms-Punjabi",
+	"name" : "ਪੰਜਾਬੀ (Punjabi)",
 	"lang" : ["pa"],
 	"normal" : [
 		"{empty} 1 2 3 4 5 6 7 8 9 0 - {empty} {bksp}",
@@ -267,7 +267,7 @@ jQuery.keyboard.layouts['ms-Punjabi'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdintam.html
  */
 jQuery.keyboard.layouts['ms-Tamil'] = {
-	"name" : "ms-Tamil",
+	"name" : "தமிழ்	(Tamil)",
 	"lang" : ["ta"],
 	"normal" : [
 		"\u0bca 1 2 3 4 5 6 7 8 9 0 - {empty} {bksp}",
@@ -296,7 +296,7 @@ jQuery.keyboard.layouts['ms-Tamil'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdintel.html
  */
 jQuery.keyboard.layouts['ms-Telugu'] = {
-	"name" : "ms-Telugu",
+	"name" : "తెలుగు (Telugu)",
 	"lang" : ["te"],
 	"normal" : [
 		"\u0c4a 1 2 3 4 5 6 7 8 9 0 - \u0c43 {bksp}",
@@ -332,7 +332,7 @@ jQuery.keyboard.layouts['ms-Telugu'] = {
  * generated from http://www.microsoft.com/resources/msdn/goglobal/keyboards/kbdusx.html
  */
 jQuery.keyboard.layouts['ms-US-International'] = {
-	"name" : "ms-US-International",
+	"name" : "English",
 	"lang" : ["en"],
 	"normal" : [
 		"` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
